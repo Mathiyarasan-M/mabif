@@ -1,0 +1,299 @@
+
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="{% static 'css/customer1.css' %}" />
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+<!-- or -->
+<link rel="stylesheet"
+href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+<style>
+
+
+
+  .button-3 {
+    appearance: none;
+    background-color: #2ea44f;
+    border: 1px solid rgba(27, 31, 35, .15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 6px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  
+  .button-3:focus:not(:focus-visible):not(.focus-visible) {
+    box-shadow: none;
+    outline: none;
+  }
+  
+  .button-3:hover {
+    background-color: #2c974b;
+    transform: scale(1.1);
+  }
+  
+  .button-3:focus {
+    box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+    outline: none;
+  }
+  
+  .button-3:disabled {
+    background-color: #94d3a2;
+    border-color: rgba(27, 31, 35, .1);
+    color: rgba(255, 255, 255, .8);
+    cursor: default;
+  }
+  
+  .button-3:active {
+    background-color: #298e46;
+    box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+  }
+
+  .dropbtn {
+  background-color: black;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #21470a;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: rgb(255, 255, 255);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: rgb(223, 223, 21);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+    </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <img src="{% static 'img/Logo1.jpg' %}" style="width: 30%;" alt="logo" />
+    </div>
+    <ul>
+      <li>
+        <a href="#">Home</a>
+      </li>
+      <li class="dropdown">
+        <a href="" class="">Customers_Transactions</a>
+        <div class="dropdown-content">
+        <a href="{% url 'cust_Booking_histroy1'%}">Booking_Histroy</a>
+        <a href="{% url 'cust_payment_histroy1'%}">payment_Histroy</a>
+        <a href="{% url 'cust_pending_invoice1'%}">pending_Invoice</a>
+        </div>
+       </li>
+       <li class="dropdown">
+        <a href="" class="">Vendors_Transactions</a>
+        <div class="dropdown-content">
+        <a href="{% url 'vendor_Product_Histroy2'%}">Products_Histroy</a>
+        <a href="{% url 'vendor_Payment_Histroy2'%}">payment_Histroy</a>
+       
+        </div>
+       </li>
+      <li>
+        <a href="{% url 'pending_invoice'%}">Add_Products</a>
+      </li>
+      <li>
+       
+        <button class="button-3">Logout</button>
+  
+      </li>
+    </ul>
+    <div class="hamburger">
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+    </div>
+  </nav>
+      <div class="menubar">
+        <ul>
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#">Booking_Histroy</a>
+          </li>
+          <li>
+            <a href="#">Payment_Histroy</a>
+          </li>
+          <li>
+            <a href="#">Pending_Invoice</a>
+          </li>
+          <li>
+            <button class="button-3">Logout</button>
+          </li>
+        </ul>
+      
+      </div>
+   <section class="hero">
+    <div class="container">
+        <h2> PAYMENT HISTROY</h2>
+        <ul class="responsive-table">
+          <li class="table-header">
+            <div class="col col-1">OrderID</div>
+            <div class="col col-3">Product Name</div>
+            <div class="col col-3">Total Amount</div>
+            <div class="col col-4">Extra Charges</div>
+            <div class="col col-4">Invoice </div>
+          </li>
+          <li class="table-row">
+          
+            <div class="col col-1">12345</div>
+            <div class="col col-3">Jcb</div>
+            <div class="col col-3" >15000</div>
+            <div class="col col-4">3500</div>
+            <div class="col col-4">Download</div>
+          </li>
+          <li class="table-row">
+          
+            <div class="col col-1">18345</div>
+            <div class="col col-3">Tractor</div>
+            <div class="col col-3" >1000</div>
+            <div class="col col-4">300</div>
+            <div class="col col-4">Download</div>
+          </li>
+          <li class="table-row">
+          
+            <div class="col col-1">18945</div>
+            <div class="col col-3">Jcb</div>
+            <div class="col col-3" >10000</div>
+            <div class="col col-4">3000</div>
+            <div class="col col-4">Download</div>
+          </li>
+          <li class="table-row">
+          
+            <div class="col col-1">12345</div>
+            <div class="col col-3">Jcb</div>
+            <div class="col col-3" >15000</div>
+            <div class="col col-4">3500</div>
+            <div class="col col-4">Download</div>
+          </li>
+        </ul>
+      </div>
+    
+   </section>
+   <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="footer-col">
+          <h4>Write to Us</h4>
+          <div class="form__group">
+            <input type="text" class="form__input" id="name" placeholder="Full name" required="" />
+            
+           <input type="email" class="form__input" id="email" placeholder="Email" required="" />
+          
+           <button type="button" class="btn-grad">Subscribe</button>
+ 
+          </div>
+          
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="https://www.mabif.com/about-us/">About Us</a></li>
+            <li><a href="https://www.mabif.com/about-us/#bod">Leadership</a></li>
+            <li><a href="https://www.mabif.com/about-us/team-mabif/">MABIF Team</a></li>
+            <li><a href="https://www.mabif.com/intellectual-property-facilitation-centre/">IPFC</a></li>
+            <li><a href="https://www.mabif.com/cbbo/">CBBO</a></li>
+            <li><a href="https://www.mabif.com/our-startups/">Startups</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="https://www.mabif.com/contact-us/">Contact Us</a></li>
+            <li><a href="https://www.mabif.com/events/">Events</a></li>
+            <li><a href="https://www.mabif.com/careers/">Careers</a></li>
+            <li><a href="https://www.mabif.com/intellectual-property-facilitation-centre/#">Blogs</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <p >Get in touch with us using the details below, or follow us on social media to stay updated on our latest initiatives and events. Your journey towards transforming agribusiness starts here!</p>
+          <h6><i class="fa fa-location-arrow" style="color: yellow;" aria-hidden="true"></i> Agricultural College & Research Institute, Madurai, Tamil Nadu 625104</h6>
+          <a href=""><h6><i class="fa fa-phone-square" style="color: yellow;" aria-hidden="true"></i>  
+            0452 242 4550
+          </h6></a>
+          <a href="mailto:info@mabif.com"><h6><i class="fa fa-envelope" style="color: yellow;" aria-hidden="true"></i> 
+           
+            info@mabif.com</h6></a>
+            <div class="social-media">
+              <a href="https://www.facebook.com/agristartups/" class="social-icon" style=" color: #ffd000;
+              border-color: #fcd80b; ">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(58, 94, 17);transform: msFilter;"><path d="M13.397 20.997v-8.196h2.765l.411-3.209h-3.176V7.548c0-.926.258-1.56 1.587-1.56h1.684V3.127A22.336 22.336 0 0 0 14.201 3c-2.444 0-4.122 1.492-4.122 4.231v2.355H7.332v3.209h2.753v8.202h3.312z"></path></svg>
+              </a>
+              <a href="https://twitter.com/agristartups" class="social-icon"  style=" color: #ffd000;
+              border-color: #fcd80b; ">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(58, 94, 17);transform: msFilter;"><path d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721 4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 2.556-.973 4.02 4.02 0 0 1-1.771 2.22 8.073 8.073 0 0 0 2.319-.624 8.645 8.645 0 0 1-2.019 2.083z"></path></svg>
+              </a>
+              <a href="https://www.instagram.com/agristartups/" class="social-icon"  style=" color: #ffd000;
+              border-color: #fcd80b; ">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:  rgb(58, 94, 17);transform: msFilter;"><path d="M20.947 8.305a6.53 6.53 0 0 0-.419-2.216 4.61 4.61 0 0 0-2.633-2.633 6.606 6.606 0 0 0-2.186-.42c-.962-.043-1.267-.055-3.709-.055s-2.755 0-3.71.055a6.606 6.606 0 0 0-2.185.42 4.607 4.607 0 0 0-2.633 2.633 6.554 6.554 0 0 0-.419 2.185c-.043.963-.056 1.268-.056 3.71s0 2.754.056 3.71c.015.748.156 1.486.419 2.187a4.61 4.61 0 0 0 2.634 2.632 6.584 6.584 0 0 0 2.185.45c.963.043 1.268.056 3.71.056s2.755 0 3.71-.056a6.59 6.59 0 0 0 2.186-.419 4.615 4.615 0 0 0 2.633-2.633c.263-.7.404-1.438.419-2.187.043-.962.056-1.267.056-3.71-.002-2.442-.002-2.752-.058-3.709zm-8.953 8.297c-2.554 0-4.623-2.069-4.623-4.623s2.069-4.623 4.623-4.623a4.623 4.623 0 0 1 0 9.246zm4.807-8.339a1.077 1.077 0 0 1-1.078-1.078 1.077 1.077 0 1 1 2.155 0c0 .596-.482 1.078-1.077 1.078z"></path><circle cx="11.994" cy="11.979" r="3.003"></circle></svg>
+              </a>
+              <a href="https://www.linkedin.com/company/agristartups/" class="social-icon"  style=" color: #ffd000;
+              border-color: #fcd80b; ">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:  rgb(58, 94, 17);transform: msFilter;"><path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM8.339 18.337H5.667v-8.59h2.672v8.59zM7.003 8.574a1.548 1.548 0 1 1 0-3.096 1.548 1.548 0 0 1 0 3.096zm11.335 9.763h-2.669V14.16c0-.996-.018-2.277-1.388-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248h-2.667v-8.59h2.56v1.174h.037c.355-.675 1.227-1.387 2.524-1.387 2.704 0 3.203 1.778 3.203 4.092v4.71z"></path></svg>
+              </a>
+          </div>
+        </div>
+      </div>
+      <br>
+      <p style="text-align: center; color: white; opacity: 50%;">Copyright © 2024 MABIF. All rights reserved. Developed by Viveka Softek .</p>
+    </div>
+</footer>
+  
+<script src="{% static 'js/Home.js' %}"></script>
+</body>
+</html>
